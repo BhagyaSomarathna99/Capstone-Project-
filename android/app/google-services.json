@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "390182579356",
+    "project_id": "claws-5a739",
+    "storage_bucket": "claws-5a739.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390182579356:android:fbdbe3e5c346570f8a5159",
+        "android_client_info": {
+          "package_name": "com.example.claws"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAteoSuD-AbAlDbC3fM0CGToc8-ynu4hvA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
