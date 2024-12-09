@@ -1,16 +1,19 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-void signUserOut() {
-  FirebaseAuth.instance.signOut();
-}
 
-class HomePage extends StatefulWidget {
+
+  //sign user out method
+  void signUserOut(){
+    FirebaseAuth.instance.signOut();
+  }
+
+  class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
-}
+  }
 
-class _HomePageState extends State<HomePage> {
+  class _HomePageState extends State<HomePage> {
   bool systemOn = true;
   bool actionSwitch = false;
   String selectedAnimal = 'Elephant';
@@ -86,21 +89,23 @@ class _HomePageState extends State<HomePage> {
               margin: EdgeInsets.symmetric(vertical: 8),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start, // Align button to the left
+                child: Row(
                   children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.black, // Set button color to black
-                          foregroundColor: Colors.white, // Set button text color to white
-                        ),
-                        onPressed: () {
-                          // Add your request update logic here
-                        },
-                        child: Text('Request Update'),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Last Update', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+                          SizedBox(height: 10),
+                          Text('Date: 2024-05-16'),
+                          Text('Time: 14:40'),
+                        ],
                       ),
+                    ),
+                    SizedBox(
+                      width: 100, // Adjusted width of the captured image
+                      height: 100, // Adjusted height of the captured image
+                      child: Image.asset('lib/images/last_update.jpg', fit: BoxFit.cover), // Ensure this image exists
                     ),
                   ],
                 ),
@@ -165,25 +170,25 @@ class _HomePageState extends State<HomePage> {
                             leading: Radio<String>(
                               value: 'Elephant',
                               groupValue: selectedAnimal,
-                              onChanged: actionSwitch ? (String? value) {
+                              onChanged: (String? value) {
                                 setState(() {
                                   selectedAnimal = value!;
                                 });
-                              } : null,
+                              },
                             ),
                           ),
                           ListTile(
                             contentPadding: EdgeInsets.symmetric(vertical: 0),
                             dense: true,
-                            title: const Text('Wild-Boar'),
+                            title: const Text('WildBear'),
                             leading: Radio<String>(
-                              value: 'Wild-Boar',
+                              value: 'WildBear',
                               groupValue: selectedAnimal,
-                              onChanged: actionSwitch ? (String? value) {
+                              onChanged: (String? value) {
                                 setState(() {
                                   selectedAnimal = value!;
                                 });
-                              } : null,
+                              },
                             ),
                           ),
                           ListTile(
@@ -193,25 +198,11 @@ class _HomePageState extends State<HomePage> {
                             leading: Radio<String>(
                               value: 'Peacock',
                               groupValue: selectedAnimal,
-                              onChanged: actionSwitch ? (String? value) {
+                              onChanged: (String? value) {
                                 setState(() {
                                   selectedAnimal = value!;
                                 });
-                              } : null,
-                            ),
-                          ),
-                          ListTile(
-                            contentPadding: EdgeInsets.symmetric(vertical: 0),
-                            dense: true,
-                            title: const Text('Common'),
-                            leading: Radio<String>(
-                              value: 'Common',
-                              groupValue: selectedAnimal,
-                              onChanged: actionSwitch ? (String? value) {
-                                setState(() {
-                                  selectedAnimal = value!;
-                                });
-                              } : null,
+                              },
                             ),
                           ),
                         ],
